@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded());
+const User = require("./database/models").User;
 const port = 3000;
 
 let tempDB = [
@@ -43,6 +44,7 @@ const updatePromoByID = (id, newPromo) => {
   });
   return 404;
 };
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}!`);
 });
