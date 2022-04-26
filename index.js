@@ -5,11 +5,6 @@ app.use(express.urlencoded());
 const User = require("./database/models").User;
 const port = 3000;
 
-// let tempDB = [
-//   { id: 1, promo: null },
-//   { id: 2, promo: null },
-// ];
-
 app.get("/users/:id", (req, res) => {
   let id = req.params.id;
   User.findAll({
@@ -32,25 +27,6 @@ app.post("/users/:id", (req, res) => {
     })
     .catch((err) => res.send(404));
 });
-
-// const findPromoByID = (id) => {
-//   tempDB.forEach((item) => {
-//     if (item.id === id) {
-//       return item.promo;
-//     }
-//   });
-//   return null;
-// };
-
-// const updatePromoByID = (id, newPromo) => {
-//   tempDB.forEach((item) => {
-//     if (item.id === id) {
-//       item.promo = promo;
-//       return 200;
-//     }
-//   });
-//   return 404;
-// };
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}!`);
