@@ -1,7 +1,11 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded());
+
+app.use(cors());
+
 const User = require("./database/models").User;
 const port = 3000;
 
